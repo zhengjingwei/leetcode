@@ -1,3 +1,5 @@
+# 3.Longest Substring Without Repeating Characters
+
 Given a string, find the length of the **longest substring** without repeating characters.
 
 **Examples:**
@@ -24,7 +26,7 @@ s  i
 
 当字符查表已存在，更新起点`start`为当前字符索引
 
-# Solution
+## Solution
 
 ```c++
 class Solution {
