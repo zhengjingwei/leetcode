@@ -189,7 +189,7 @@ public:
 
 
 
-##解法4：Manacher算法
+## 解法4：Manacher算法
 
 时间复杂度$O(n)$
 
