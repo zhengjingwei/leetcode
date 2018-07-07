@@ -32,6 +32,8 @@ A solution set is:
 
 $O(n^2)$
 
+（排序$O(nlogn)$ + 双重循环$O(n^2)$）
+
 
 
 
