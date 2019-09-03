@@ -8,7 +8,51 @@ using namespace std;
  * 分解成4步
  */
 
+// 1
 class Solution {
+    vector<int> ret;
+public:
+    vector<int> spiralOrder(vector<vector<int>>& matrix) {
+        if(matrix.empty() || matrix[0].empty()) return ret;
+        int aR = 0, aC = 0;                             // 左上角坐标
+        int bR = matrix.size()-1, bC = matrix[0].size()-1;  // 右下角坐标
+        while (aR <= bR && aC <= bC){
+            printCircle(matrix, aR++, aC++, bR--, bC--);
+        }
+        return ret;
+    }
+private:
+    void printCircle(vector<vector<int>>& m, int aR, int aC, int bR, int bC){
+        if(aR == bR){
+            // 子矩阵只有一行
+            for(int i = aC; i<= bC; ++i)
+                ret.push_back(m[aR][i]);
+        }else if (aC == bC){
+            // 子矩阵只有一列
+            for(int i = aR; i <= bR; ++i)
+                ret.push_back(m[i][aC]);
+        }else{
+            // 一般情况
+            int curR = aR, curC = aC;
+            
+            while(curC < bC)    // 从左到右打印
+                ret.push_back(m[aR][curC++]);
+            
+            while(curR < bR)    // 从上到下打印
+                ret.push_back(m[curR++][bC]);
+
+            while(curC > aC)    // 从右往左打印
+                ret.push_back(m[bR][curC--]);
+
+            while(curR > aR)    // 从下往上打印
+                ret.push_back(m[curR--][aC]);
+        }
+    }
+};
+
+
+// 2 
+class SolutionII {
 public:
     vector<int> spiralOrder(vector<vector<int>>& matrix) {
         vector<int> ret;
