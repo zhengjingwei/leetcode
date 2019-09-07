@@ -32,7 +32,7 @@ public:
         while(l < r){
             if(nums[l] == l+1)
                 ++l;    // 第l位置的元素放置正确
-            else if(nums[l] < l+1 || nums[l] > r || nums[l] == l+1 ){
+            else if(nums[l] < l+1 || nums[l] > r || nums[nums[l]-1] == nums[l] ){
                 // 已出现 or 超出可能范围 or 已经排好位置(出现重复元素)
                 // 则代表可能出现的整数范围少一个,将最后一个位置元素赋值到当前位置,r-1
                 nums[l] = nums[--r];
